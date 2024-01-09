@@ -1,20 +1,23 @@
-package org.academy.toyota.car;
+package org.academy.toyota.car.solara;
 
-import org.academy.toyota.abstractCar.Cabriolet;
+import org.academy.toyota.abstractcar.Cabriolet;
+import org.academy.toyota.abstractcar.option.Top;
+import org.academy.toyota.car.details.*;
+import org.academy.toyota.factory.Country;
 
 public class Solara extends Cabriolet {
-    private boolean hasRefregerator;
+    private Refrigerator refrigerator;
 
-    public boolean isHasRefregerator() {
-        return hasRefregerator;
+    public Solara(String color, int maxSpeed, Transmission transmission, boolean isDrive,
+                  Wheel[] wheels, Tank tank, Engine engine, Electric electric,
+                  Light light, double price, Country country,
+                  Top top, Refrigerator refrigerator) {
+        super(color, maxSpeed, transmission, isDrive, wheels, tank, engine, electric,
+                light, price, country, top);
+        this.refrigerator = refrigerator;
     }
 
-    public void setHasRefregerator(boolean hasRefregerator) {
-        this.hasRefregerator = hasRefregerator;
-    }
-    public void makeDrinkCold(boolean hasRefregerator) {
-        if (hasRefregerator) {
-            System.out.println("Охлаждаю напиток");
-        }
+    public Refrigerator getRefrigerator() {
+        return refrigerator;
     }
 }

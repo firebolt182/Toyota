@@ -1,21 +1,13 @@
 package org.academy.toyota.car.solara;
 
-import org.academy.toyota.car.option.Enable;
+public class Refrigerator {
 
-public class Refregerator implements Enable {
-    private Drink drink;
 
-    public Refregerator(Drink drink) {
-        this.drink = drink;
-    }
-
-    @Override
-    public void on() {
+    public void on(Drink drink) {
         drink.setCold(true);
     }
 
-    @Override
-    public void off() {
-    drink.setCold(false);
+    public void off(Drink drink) {
+        drink.setCold(false);
     }
 }

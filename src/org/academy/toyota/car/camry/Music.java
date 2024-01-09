@@ -1,14 +1,12 @@
-package org.academy.toyota.car.option;
+package org.academy.toyota.car.camry;
 
-public class Music implements Enable{
+public class Music {
     private boolean musicConnect;
 
-    @Override
     public void on() {
         musicConnect = true;
     }
 
-    @Override
     public void off() {
         musicConnect = false;
     }

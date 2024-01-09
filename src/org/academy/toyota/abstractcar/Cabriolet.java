@@ -1,23 +1,21 @@
-package org.academy.toyota.car;
+package org.academy.toyota.abstractcar;
 
-public abstract class Cabriolet extends Car{
-    private boolean isTopUp;
+import org.academy.toyota.abstractcar.option.Top;
+import org.academy.toyota.car.details.*;
+import org.academy.toyota.factory.Country;
 
-    public boolean isTopUp() {
-        return isTopUp;
+public abstract class Cabriolet extends Car {
+    private Top top;
+
+    public Cabriolet(String color, int maxSpeed, Transmission transmission,
+                     boolean isDrive, Wheel[] wheels, Tank tank, Engine engine,
+                     Electric electric, Light light, double price, Country country, Top top) {
+        super(color, maxSpeed, transmission, isDrive,
+                wheels, tank, engine, electric, light, price, country);
+        this.top = top;
     }
 
-    public void setTopUp(boolean topUp) {
-        isTopUp = topUp;
-    }
-
-    //крышу вверх
-    public void topUp() {
-     setTopUp(true);
-    }
-
-    //крышу вниз
-    public void topDown() {
-        setTopUp(false);
+    public Top getTop() {
+        return top;
     }
 }

@@ -1,17 +1,13 @@
-package org.academy.toyota.car.duna;
+package org.academy.toyota.car.dyna;
 
-import org.academy.toyota.car.option.Enable;
-
-public class Phone implements Enable {
+public class Phone {
     private boolean charge;
 
-    @Override
-    public void on() {
+    public void chargeOn() {
         charge = true;
     }
 
-    @Override
-    public void off() {
+    public void chargeOff() {
         charge = false;
     }
 }

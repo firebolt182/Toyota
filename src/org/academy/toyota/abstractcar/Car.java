@@ -1,49 +1,69 @@
-package org.academy.toyota.car;
+package org.academy.toyota.abstractcar;
 
 import org.academy.toyota.car.details.*;
+import org.academy.toyota.factory.Country;
 
 public abstract class Car {
     private String color;
     private int maxSpeed;
     private Transmission transmission;
-    private boolean isDrive;
+    private boolean isDrive = false;
     private Wheel[] wheels;
     private Tank tank;
     private Engine engine;
     private Electric electric;
     private Light light;
     private double price;
-    public boolean start() throws StartCarException {
-        if (!wheelsReady() || tank.isEmpty() || !electric.isWorkable() ||
-                !engine.isWorkable()) {
-            throw new StartCarException();
-        } else {
-            //service
-            System.out.println("Car starts");
-            return isDrive = true;
+    private Country country;
+
+    public Car(String color, int maxSpeed, Transmission transmission, boolean isDrive, Wheel[] wheels, Tank tank,
+               Engine engine, Electric electric, Light light, double price, Country country) {
+        this.color = color;
+        this.maxSpeed = maxSpeed;
+        this.transmission = transmission;
+        this.isDrive = isDrive;
+        this.wheels = wheels;
+        this.tank = tank;
+        this.engine = engine;
+        this.electric = electric;
+        this.light = light;
+        this.price = price;
+        this.country = country;
+    }
+
+    //Проверяет работоспособность узлов
+    public void start() {
+        //isDrive должно быть true
+        try {
+            wheelsReady();
+            tank.notEmpty();
+            electric.isWorkable();
+            engine.isWorkable();
+            isDrive = true;
+        } catch (StartCarException e) {
+            e.getMessage();
         }
     }
 
-    public boolean wheelsReady() {
-        if (wheels.length == 4) {
-            for (Wheel wheel : wheels) {
-                if (wheel.isBroken()) {
-                    return false;
-                }
-                return true;
+    public void stop() {
+        isDrive = false;
+    }
+
+    public boolean wheelsReady() throws StartCarException {
+        for (Wheel wheel : wheels) {
+            if (wheels.length != 4 || wheel.isBroken()) {
+                throw new StartCarException("Проблема с колесами");
             }
-            return true;
         }
-        return false;
+        return true;
     }
-    public boolean stop() {
-        //service
-        System.out.println("Car stops");
-        return isDrive = false;
-    }
+
+    //Включить фары
     public void turnLightsOn() {
-        //service
-        System.out.println("Фары начали гореть");
         light.setWorkable(true);
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

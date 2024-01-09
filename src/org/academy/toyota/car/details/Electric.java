@@ -1,14 +1,18 @@
-package org.academy.toyota.car;
+package org.academy.toyota.car.details;
 
-public class Electric implements Workable{
-    private boolean isWorkable = true;
+import org.academy.toyota.abstractcar.StartCarException;
 
-    @Override
-    public boolean isWorkable() {
-        return isWorkable;
+public class Electric {
+    private boolean isWorkable;
+
+    public Electric(boolean isWorkable) {
+        this.isWorkable = isWorkable;
     }
 
-    public void setWorkable(boolean workable) {
-        isWorkable = workable;
+    public boolean isWorkable() throws StartCarException {
+        if (!isWorkable) {
+            throw new StartCarException("Проблема с электрикой");
+        }
+        return true;
     }
 }

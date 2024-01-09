@@ -1,13 +1,12 @@
-package org.academy.toyota.car.duna;
-
-import org.academy.toyota.car.duna.Phone;
+package org.academy.toyota.car.dyna;
 
 public class Socket {
 
-    public void chargeOn(Phone phone) {
-        phone.on();
+    public void on(Phone phone) {
+        phone.chargeOn();
     }
-    public void chargeOff(Phone phone) {
-        phone.off();
+
+    public void off(Phone phone) {
+        phone.chargeOff();
     }
 }

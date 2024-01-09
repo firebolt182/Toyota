@@ -1,13 +1,18 @@
-package org.academy.toyota.car;
+package org.academy.toyota.car.details;
 
-public class Engine implements Workable{
+import org.academy.toyota.abstractcar.StartCarException;
+
+public class Engine {
     private boolean isWorkable = true;
 
-    public boolean isWorkable() {
-        return isWorkable;
+    public Engine(boolean isWorkable) {
+        this.isWorkable = isWorkable;
     }
 
-    public void setWorkable(boolean workable) {
-        this.isWorkable = workable;
+    public boolean isWorkable() throws StartCarException {
+        if (!isWorkable) {
+            throw new StartCarException("Проблема с двигателем");
+        }
+        return true;
     }
 }

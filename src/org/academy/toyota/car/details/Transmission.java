@@ -1,4 +1,4 @@
-package org.academy.toyota.car;
+package org.academy.toyota.car.details;
 
 public enum Transmission {
     AUTOMATIC,

@@ -1,7 +1,7 @@
-package org.academy.toyota.car;
+package org.academy.toyota.abstractcar;
 
-public class StartCarException extends Exception{
-    public StartCarException() {
-        System.out.println("Не может поехать (внести причины)");
+public class StartCarException extends Exception {
+    public StartCarException(String message) {
+        System.out.println(message);
     }
 }

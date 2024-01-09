@@ -1,2 +1,7 @@
-package org.academy.toyota.factory;public enum Country {
+package org.academy.toyota.factory;
+
+public enum Country {
+    RUSSIA,
+    JAPAN,
+    TURKEY
 }

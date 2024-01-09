@@ -1,9 +1,11 @@
-package org.academy.toyota.car.option;
+package org.academy.toyota.car.camry;
 
 public class UsbPort {
-    private Music music;
 
-    public UsbPort(Music music) {
-        this.music = music;
+    public void on(Music music) {
+        music.on();
+    }
+    public void off(Music music) {
+        music.off();
     }
 }
