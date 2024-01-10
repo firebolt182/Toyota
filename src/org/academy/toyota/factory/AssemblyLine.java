@@ -22,11 +22,7 @@ public class AssemblyLine {
 
     // проблема с пятым колесом
     public Camry createCamry(double price, String color) {
-        try {
-            checkCountry();
-        } catch (CountryFactoryNotEqualException e) {
-            System.out.println(e.getMessage());
-        }
+        check();
         Electric electric = factory.buildElectric();
         Engine engine = factory.buildEngine();
         Light light = factory.buildLight();
@@ -39,11 +35,7 @@ public class AssemblyLine {
     }
 
     public Dyna createDyna(double price, String color) {
-        try {
-            checkCountry();
-        } catch (CountryFactoryNotEqualException e) {
-            System.out.println(e.getMessage());
-        }
+        check();
         Electric electric = factory.buildElectric();
         Engine engine = factory.buildEngine();
         Light light = factory.buildLight();
@@ -54,11 +46,7 @@ public class AssemblyLine {
     }
 
     public Hiance createHiance(double price, String color) {
-        try {
-            checkCountry();
-        } catch (CountryFactoryNotEqualException e) {
-            System.out.println(e.getMessage());
-        }
+        check();
         Electric electric = factory.buildElectric();
         Engine engine = factory.buildEngine();
         Light light = factory.buildLight();
@@ -70,11 +58,7 @@ public class AssemblyLine {
     }
 
     public Solara createSolara(double price, String color) {
-        try {
-            checkCountry();
-        } catch (CountryFactoryNotEqualException e) {
-            System.out.println(e.getMessage());
-        }
+        check();
         Electric electric = factory.buildElectric();
         Engine engine = factory.buildEngine();
         Light light = factory.buildLight();
@@ -84,7 +68,15 @@ public class AssemblyLine {
                 tank, engine, electric, light, price, this.country, new Top(), new Refrigerator());
     }
 
-    public void checkCountry() throws CountryFactoryNotEqualException {
+    private void check() {
+        try {
+            checkCountry();
+        } catch (CountryFactoryNotEqualException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void checkCountry() throws CountryFactoryNotEqualException {
         if (!(this.country.equals(factory.getCountry()))) {
             throw new CountryFactoryNotEqualException("Страна сборочного цеха : "
                     + this.country + " не совпадает со страной - заводом : "
