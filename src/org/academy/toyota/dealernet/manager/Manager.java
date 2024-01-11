@@ -46,7 +46,7 @@ public class Manager {
     }
 
     //запрос на производство в случае отсутствия авто за нужную сумму
-    public Car queryToAssembly(AssemblyLine assemblyLine, String model) {
+    private Car queryToAssembly(AssemblyLine assemblyLine, String model) {
         switch (model) {
             case "Camry":
                 return assemblyLine.createCamry(10000, "black");
@@ -60,7 +60,7 @@ public class Manager {
         return null;
     }
 
-    public Car seekCar(Warehouse warehouse, Price price) {
+    private Car seekCar(Warehouse warehouse, Price price) {
         for (int i = 0; i < warehouse.getCars().length; i++) {
             if (warehouse.getCars()[i] != null
                     && warehouse.getCars()[i].getClass().getSimpleName().equals(price.getName())
@@ -92,7 +92,7 @@ public class Manager {
 
     }
 
-    public double showExpenses(Car car) {
+    private double showExpenses(Car car) {
         switch (car.getClass().getSimpleName()) {
             case "Camry":
                 return Price.CAMRY_BLACK.getExpenses();
